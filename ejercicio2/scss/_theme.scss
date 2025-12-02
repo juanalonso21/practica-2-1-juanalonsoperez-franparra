@@ -1,8 +1,8 @@
 // _theme.scss
 // Variables y Mixins
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;800&display=swap');
-// Paleta de colores (Tema Música)
-$color-primary: #0fac1c; // Un rosa neón vibrante
+// Paleta de colores 
+$color-primary: #0fac1c; 
 $color-secondary: #2b2b2b;
 $color-text: #333;
 $color-text-light: #777;
@@ -12,7 +12,7 @@ $color-border: #ddd;
 // Dark Mode
 $color-bg-dark: #1a1919;
 $color-text-dark: #ffffff;
-$color-bg-alt: #f9f9f9; // Light mode alt
+$color-bg-alt: #f9f9f9; 
 
 // Breakpoints
 $bp-tablet: 768px;
@@ -26,7 +26,7 @@ $spacing-lg: 40px;
 // Fonts
 $font-main: 'Inter', sans-serif;
 $font-heading: 'Nunito Sans', sans-serif;
-$font-body: $font-main; // Alias if needed
+$font-body: $font-main; 
 
 // Mixins
 @mixin container {

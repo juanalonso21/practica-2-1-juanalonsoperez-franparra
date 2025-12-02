@@ -2,7 +2,7 @@
 // Layout Principal (Grid y Estructura)
 
 .header {
-  // Mobile: Header normal
+
   background-color: $color-bg;
   border-bottom: 1px solid $color-border;
   position: sticky;
@@ -31,7 +31,7 @@
 }
 
 .hero {
-  // Full width, outside grid
+
   width: 100%;
 }
 
@@ -78,8 +78,8 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr; // Single column for all
-    gap: $spacing-lg; // Increased gap for list view
+    grid-template-columns: 1fr; 
+    gap: $spacing-lg; 
     margin-top: $spacing-md;
   }
 }

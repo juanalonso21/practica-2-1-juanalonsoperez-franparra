@@ -568,6 +568,9 @@ body.dark-mode .gallery {
 body.dark-mode .nav__link {
   color: #ffffff;
 }
+body.dark-mode .nav__link:hover {
+  color: #0fac1c;
+}
 
 .is-hidden {
   display: none !important;

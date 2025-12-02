@@ -42,6 +42,10 @@ body.dark-mode {
 
     .nav__link {
         color: $color-text-dark;
+
+        &:hover {
+            color: $color-primary;
+        }
     }
 }
 
