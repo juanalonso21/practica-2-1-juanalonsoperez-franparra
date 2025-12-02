@@ -1,0 +1,17 @@
+// main.scss
+// Archivo principal que importa todos los partials
+
+// 1. Theme (Variables, Mixins)
+@import 'theme';
+
+// 2. Base (Reset, Typography)
+@import 'base';
+
+// 3. Layout (Grid, Structure)
+@import 'layout';
+
+// 4. Module (Components)
+@import 'module';
+
+// 5. State (Dark Mode, Active States)
+@import 'state';

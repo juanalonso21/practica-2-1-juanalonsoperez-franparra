@@ -1,0 +1,89 @@
+// _layout.scss
+// Layout Principal (Grid y Estructura)
+
+.header {
+  // Mobile: Header normal
+  background-color: $color-bg;
+  border-bottom: 1px solid $color-border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-sm $spacing-md;
+  }
+
+  @media (min-width: $bp-desktop) {
+    grid-area: header;
+    position: static;
+    border-bottom: none;
+    background-color: transparent;
+  }
+}
+
+.nav {
+  @media (min-width: $bp-desktop) {
+    grid-area: menu;
+  }
+}
+
+.hero {
+  // Full width, outside grid
+  width: 100%;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "content"
+    "sidebar";
+  gap: $spacing-md;
+  padding: $spacing-md;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @media (min-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: $bp-desktop) {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+      "content sidebar";
+    gap: $spacing-lg;
+  }
+}
+
+.main-content {
+  grid-area: content;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.gallery {
+  padding: $spacing-lg $spacing-md;
+  text-align: center;
+  background-color: $color-bg-alt;
+
+  .container {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr; // Single column for all
+    gap: $spacing-lg; // Increased gap for list view
+    margin-top: $spacing-md;
+  }
+}
+
+.footer {
+  grid-area: footer;
+}

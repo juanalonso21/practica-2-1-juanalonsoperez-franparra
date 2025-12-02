@@ -1,0 +1,445 @@
+// _module.scss
+// Componentes (BEM)
+
+// --- Header & Navigation ---
+.header {
+  background-color: $color-bg;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-sm $spacing-md;
+
+    @media (min-width: $bp-desktop) {
+      justify-content: center;
+      padding: $spacing-md 0;
+    }
+  }
+}
+
+.logo {
+  font-family: $font-heading;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: $color-primary;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  @media (min-width: $bp-desktop) {
+    font-size: 3rem;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.nav {
+  &__list {
+    display: none; // Mobile hidden
+    flex-direction: column;
+    background-color: $color-bg;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: $spacing-md;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+
+    &--active {
+      display: flex;
+    }
+
+    @media (min-width: $bp-desktop) {
+      display: flex;
+      flex-direction: row;
+      position: relative; // For absolute button positioning
+      box-shadow: none;
+      padding: $spacing-sm 0;
+      gap: $spacing-lg;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  &__item {
+    margin-bottom: $spacing-sm;
+
+    @media (min-width: $bp-desktop) {
+      margin-bottom: 0;
+
+      // Position the Dark Mode button (last item) to the right
+      &:last-child {
+        position: absolute;
+        right: $spacing-md; // Spacing from right edge
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: $color-text;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__toggle {
+    font-size: 1.5rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: $color-text;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      color: $color-primary;
+    }
+
+    @media (min-width: $bp-desktop) {
+      display: none;
+    }
+  }
+}
+
+// --- Hero ---
+.hero {
+  background-color: #333; // Fallback color
+  background-image: url('../assets/img/hero-bg.jpg'); // Fallback
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: $spacing-md;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); // Overlay
+  }
+
+  h1,
+  p,
+  .btn {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-sm;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: $spacing-md;
+  }
+}
+
+// --- Card (Newspaper Style) ---
+.card {
+  // Removed card styling (shadow, bg, radius)
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); // Separator
+  padding: $spacing-md;
+  gap: $spacing-md;
+
+  display: flex;
+  flex-direction: column; // Mobile: Vertical
+
+  @media (min-width: $bp-tablet) {
+    flex-direction: row; // Desktop/Tablet: Horizontal
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: $spacing-lg;
+    gap: $spacing-lg;
+  }
+
+  &:hover {
+    transform: none; // Remove hover lift
+  }
+
+  &__img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    border-radius: 12px;
+
+    @media (min-width: $bp-tablet) {
+      width: 45%;
+      height: 280px;
+    }
+  }
+
+  &__content {
+    padding: $spacing-md;
+    text-align: center;
+    width: 100%;
+
+    @media (min-width: $bp-tablet) {
+      width: 55%;
+      text-align: left; // Left align text
+      padding: 0 $spacing-lg; // Padding on sides only
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-sm;
+    font-size: 1.5rem;
+    color: $color-primary; // Highlight title
+  }
+}
+
+// --- Carousel ---
+.carousel-section {
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-lg; // Add distance to parallax
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  height: 300px;
+  width: 80%; // Smaller width as requested
+  max-width: 1000px; // Max width constraint
+  margin: 0 auto; // Center it
+
+  &__track-container {
+    background-color: #ddd;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  &__track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    transition: transform 250ms ease-in;
+  }
+
+  &__slide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+
+    &--left {
+      left: 10px;
+    }
+
+    &--right {
+      right: 10px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  &__indicator {
+    border: 0;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    margin: 0 5px;
+    cursor: pointer;
+
+    &.current-slide {
+      background: $color-primary;
+    }
+  }
+}
+
+// --- Parallax Video ---
+.parallax-video {
+  height: 300px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../assets/img/video-bg.jpg'); // Fallback image
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: $spacing-lg * 2; // More distance
+  margin-bottom: 0; // Ensure no bottom margin
+
+  &__overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: $spacing-lg;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+  }
+}
+
+// --- Sidebar Widgets ---
+.sidebar__widget {
+  background-color: $color-bg-alt;
+  padding: $spacing-md;
+  margin-bottom: $spacing-md;
+  border-radius: 8px;
+
+  h3 {
+    border-bottom: 2px solid $color-primary;
+    padding-bottom: $spacing-sm;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.event-list {
+  li {
+    padding: $spacing-sm 0;
+    border-bottom: 1px solid $color-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// --- Footer ---
+.footer {
+  background-color: $color-secondary;
+  color: white;
+  padding: $spacing-lg 0;
+  text-align: center;
+  margin-top: 0; // Remove top margin to stick to parallax
+
+  &__social {
+    margin-bottom: $spacing-md;
+
+    a {
+      margin: 0 $spacing-sm;
+      font-weight: bold;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+// --- Breadcrumbs ---
+.breadcrumbs {
+  margin-bottom: $spacing-md;
+  font-size: 0.9rem;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    &::after {
+      content: '/';
+      margin: 0 $spacing-sm;
+      color: $color-text-light;
+    }
+
+    &:last-child::after {
+      content: '';
+    }
+
+    &--active {
+      color: $color-primary;
+      font-weight: 600;
+    }
+  }
+}
+
+// --- Buttons ---
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: $color-primary;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($color-primary, 10%);
+  }
+
+  &--small {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+
+  &--scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 40px;
+    display: none; // Hidden by default
+    z-index: 90;
+
+    &.is-visible {
+      display: block;
+    }
+  }
+}

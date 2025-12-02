@@ -1,0 +1,55 @@
+// _state.scss
+// Estados (Dark Mode, Active, Hidden)
+
+body.dark-mode {
+    background-color: $color-bg-dark;
+    color: $color-text-dark;
+
+    .header,
+    .nav__list {
+        background-color: $color-bg-dark;
+        border-bottom-color: #333;
+    }
+
+    .nav__toggle {
+        color: $color-text-dark;
+        background-color: rgba(255, 255, 255, 0.1);
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: $color-primary;
+        }
+    }
+
+    .card {
+        background-color: #1e1e1e;
+        color: $color-text-dark;
+    }
+
+    .sidebar__widget {
+        background-color: #1e1e1e;
+        color: $color-text-dark;
+    }
+
+    .footer {
+        background-color: #000;
+    }
+
+    .gallery {
+        background-color: #121212; // Match body dark bg or slightly lighter
+        color: $color-text-dark;
+    }
+
+    .nav__link {
+        color: $color-text-dark;
+    }
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.nav__list--active {
+    display: flex !important;
+    z-index: 99;
+}
